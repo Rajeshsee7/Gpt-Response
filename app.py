@@ -1,15 +1,16 @@
 from flask import Flask, request
 from openai import OpenAI
 import json
+import os
 
 app = Flask(__name__)
 
 @app.route("/ask", methods=["POST"])
-def add():
+def chat():
     if request.is_json:
         data = request.get_json()
         user_prompt = data.get('prompt', '')
-        apikey = data.get('apikey', '')
+        apikey = os.getenv("API_KEY")
     else:
         return {"error": "Invalid request format"}
 
