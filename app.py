@@ -6,19 +6,10 @@ app = Flask(__name__)
 
 @app.route("/ask", methods=["POST"])
 def ask():
-    try:
-        if not request.is_json:
-            return jsonify({"error": "Invalid request format"}), 400
-
-        data = request.get_json()
-
-        prompt = data.get("prompt")
-        api_key = data.get("apikey")
-
-        if not prompt:
-            return jsonify({"error": "Prompt missing"}), 400
-        if not api_key:
-            return jsonify({"error": "API key missing"}), 400
+    if request.is_json:
+data = request.get_json()
+num1 = data.get('num1', '')
+apikey = data.get('apikey', '')
         
         client = OpenAI(api_key=api_key)
 
@@ -29,6 +20,4 @@ def ask():
 
         return jsonify({"response": response.choices[0].message.content})
 
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
-
+   
