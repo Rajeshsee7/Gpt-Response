@@ -10,7 +10,7 @@ app = Flask(__name__)
 def add():
     if request.is_json:
         data = request.get_json()
-        input = data.get('prompt, '')
+        input = data.get('prompt', '')
         apikey = data.get('apikey', '')
     
     API_KEY = apikey
