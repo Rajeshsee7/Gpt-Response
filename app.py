@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from openai import OpenAI
 import os
+import json
 
 app = Flask(__name__)
 
@@ -22,11 +23,11 @@ def add():
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[{"role": "user", "content": prompt}]
-    )
+    )    
 
-    output = response.choices[0].message.content
+output = response.choices[0].message.content
 
 return app.response_class(
     response=json.dumps({"response": output}, ensure_ascii=False),
     mimetype="application/json"
-)
+    )
