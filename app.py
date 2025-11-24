@@ -24,4 +24,9 @@ def add():
         messages=[{"role": "user", "content": prompt}]
     )
 
-    return jsonify({"response": response.choices[0].message.content})
+    output = response.choices[0].message.content
+
+return app.response_class(
+    response=json.dumps({"response": output}, ensure_ascii=False),
+    mimetype="application/json"
+)
