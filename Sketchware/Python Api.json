@@ -1,0 +1,33 @@
+[
+  {
+    "code": "",
+    "imports": "",
+    "color": "#673AB7",
+    "name": "Made By @rajeshsardar",
+    "typeName": "Made By @rajeshsardar",
+    "palette": "20",
+    "type": "h",
+    "spec": "Made By @rajeshsardar"
+  },
+  {
+    "code": "%1$s \u003d new RequestNetwork(this);\r\n%2$s \u003d new HashMap\u003c\u003e();\r\n_%1$s_request_listener \u003d new RequestNetwork.RequestListener() {\n    @Override\n    public void onResponse(String tag, String response, HashMap\u003cString, Object\u003e responseHeaders) {\n        try {\n            JSONObject json \u003d new JSONObject(response);\n             %3$s \u003d json.getString(response);\n            \n        } catch (JSONException e) {          \n            %3$s \u003d response;\n        }\n%4$s \u003d tag;\n%5$s\n    }\n\n    @Override\n    public void onErrorResponse(String tag, String message) {\n        %4$s \u003d tag;\n        %6$s\n    }\n};",
+    "imports": "",
+    "color": "#673AB7",
+    "name": "Get Response ",
+    "typeName": "on creat get response",
+    "palette": "20",
+    "type": "e",
+    "spec": "Add RN id : %s.inputOnly add %m.varMap Set response to String Var %s Set tag to String Var %s  then",
+    "spec2": "if error "
+  },
+  {
+    "code": "%1$s+\"/\"+%2$s.trim()",
+    "imports": "",
+    "color": "#673AB7",
+    "name": "join link",
+    "typeName": "string",
+    "palette": "20",
+    "type": "s",
+    "spec": "add link %s + key /%s "
+  }
+]
