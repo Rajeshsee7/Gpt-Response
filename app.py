@@ -20,12 +20,13 @@ def chat():
 
     client = OpenAI(api_key=apikey)
 
-    response = client.chat.completions.create(
-        model= setModel,
-        messages=[{"role": "user", "content": user_prompt}]
+    # 🔥 New API format
+    response = client.responses.create(
+        model=setModel,
+        input=user_prompt
     )
 
-    output = response.choices[0].message.content
+    output = response.output_text
 
     return app.response_class(
         response=json.dumps({"response": output}, ensure_ascii=False),
