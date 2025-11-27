@@ -20,7 +20,7 @@ def chat():
 
     client = OpenAI(api_key=apikey)
 
-    # 🔥 New API format
+    # Api format
     response = client.responses.create(
         model=setModel,
         input=user_prompt
